@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://dev.stg.brown.edu/projects/usepigraphy/schema/exp-epidoc.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <teiHeader>
+
+        <fileDesc>
+
+            <!-- *************************************  <titleStmt>  *********************************
+                Used to group  information about the title of a work and its creator. 
+                <title> stores the US Epigraphy number as it will appear when it is displayed. It is the "real" US Epigraphy number
+                that is based on the collection's accession number and can contain characters such as ? * # +  / and [space].
+            -->
+
+            <titleStmt>
+                <title>RI.Prov.BU.Class.G.Sq.IG Ι3 476 A</title>
+            </titleStmt>
+
+            <!-- *************************************  <publicationStmt>  *********************************
+                Used to group information about the publication and permissions of a work. All files will have a US Ep. copyright
+                statement, which is stored in an external file called include_publicationStmt.xml. In the future, if a collection has 
+                special copyright or permissions, we can add more information after the included file.
+                
+                <idno>: Repeat the value that is in <title>.
+                @xml:id is the machine readable US Epigraphy number. This is the US Epigraphy number in the title
+                element above, with any illegal characters such as ? * # & +  [space] replaced with a set of predeterimined 
+                characters that are legal in XML names and viable URLs.  See the wiki for the list of substitutions.
+            -->
+
+            <publicationStmt>
+                <xi:include
+                    href="http://dev.stg.brown.edu/projects/usepigraphy/xml/include_publicationStmt.xml">
+                    <xi:fallback>
+                        <p>The Publications Statement should appear in this space.</p>
+                    </xi:fallback>
+                </xi:include>
+                <idno type="USEpigraphy" xml:id="RI.Prov.BU.Class.G.Sq.IG_Ι3_476_A">RI.Prov.BU.Class.G.Sq.IG Ι3 476 A</idno>
+                
+            </publicationStmt>
+
+            <!--  *************************************  <sourceDesc>  ********************************* -->
+
+            <sourceDesc>
+
+                <!--  *************************************  <msDesc>  ********************************* 
+                      <msIdentifier>** breaks out the information that is packed into the US Epigraphy number into its component parts, 
+                        and spells each part out.
+                              <region> corresponds to the first part of the number = state
+                              <settlement> corresponds to the second part = city
+                              <institution> is optional, but is used if there is a university or other entity to which the collection belongs
+                              <repository> is the third or fourth part of the number =  museum or collection where the inscription is housed
+                              <idno> is the last part of the number, and generally represents the accession number the inscription has been given by the collection that houses it. 
+                              It should correspond to the last component of <title>.
+                              
+                              If there is more repository information, or if the inscription is known by another name, this information can
+                              be encoded using <altIdentifer>, which has the same elements as <msIdentifier>, or by <msName>, which contains text.
+                -->
+                <msDesc>
+                    <msIdentifier>
+                        <region>RI</region>
+                        <settlement>Prov</settlement>
+                        <institution>BU</institution>
+                        <repository>Class</repository> <!-- optional -->
+                        <idno>Sq.IG Ι3 476 A</idno>
+                    </msIdentifier>
+
+                <!--  *************************************  <msContents>  ********************************* 
+
+                      <msContents>** is normally used to describe the contents of an inscription.
+                              
+                            <textLang> has two attributes: @mainLang which is used for the language in which the inscription is written
+                                   and @otherLangs which can have as its values one or more other languages found in the inscription. The 
+                                   values of both attributes must use the proper codes, so if you need a language for which there is no 
+                                   code listed, please ask. This element can have content if it is necessary to explain something.
+
+                             <msItem> contains a short summary of the content of the inscription. It can have other markup within
+                                   such as <persname>, <foreign> or <emph>. If there is more than one inscription or face, there
+                                   can be more than one <msItem>. The genre of the inscription is encoded in @class 
+                                   using one or more values from the genre taxonomy. The first character of the attribute value should be a #.
+                -->
+                    <msContents>
+                        <textLang mainLang="grc"/> <!-- la, grc, ett ?? -->
+                        <msItem class="#document.public">
+                        <p>Accounts for the building of the Erechtheion.</p>
+                        </msItem>
+                    </msContents>
+
+                    <!--  *************************************  <physDesc>  ********************************* -->
+
+                    <physDesc>
+
+                        <!--  *************************************  <objectDesc>  *********************************
+                            <objectDesc> contains information about the physical properties of the object and the inscribed text.
+                            @ana contains one or more controlled values for the type of support, from the form section
+                                of the taxonomy. You may use more than one value, separating values with a 
+                                space. ex: ana="#ash_urn #base"
+                            
+                            <supportDesc> contains a range of information about the support.
+                            @ana contains one or more controlled value for the inscribed material from the material section 
+                                 of the taxonomy. 
+                                 
+                            <support> contains a <p> with free text about the material and the form of the support, and a structured 
+                                  component that records the dimensions of the support.
+                                  
+                                  <p> should have one or two short sentences that describe the form and material of the support. The <seg>s
+                                       may optionally be used to demarcate detailed information about each within the sentence.
+                                  
+                                  <dimensions>
+                                       @type indicates what the dimensions are measuring, for example, "surface"
+                                       @unit indicates the unit of measurement. 
+                                       Note that instead of <height>, <width> and <depth> it is possible to use  <dim type="xx">. 
+                                       This may be useful for round objects.  There can be more than one dimensions element.
+                                    
+                                    <condition> can contain free text that describes the condition of the inscription. [optional]
+                                       @ana contains a controlled value from the preservation category of the taxonomy. 
+                        -->
+
+                        <objectDesc ana="#stele"> 
+
+                            <supportDesc ana="#xx">
+
+                                <support>
+                                <p></p>
+                                     <dimensions type="surface" unit="cm">
+                                        <height/>
+                                        <width/>
+                                        <depth/>
+                                     </dimensions>
+                                    <p/>
+                               </support>
+
+                                <condition ana="#fragments.contiguous">
+                                    <p/>
+                                </condition>
+
+                            </supportDesc>
+
+                            <!--  *************************************  <layoutDesc>  *********************************
+                                This is where information about the format of the text is encoded.
+                                Use <locus> to narrow down part of inscription being discussed if necessary.
+                                <layout> can have free text content inside the <p> that provides more detailed information. [optional]
+                                @columns and @writtenLines record the number of columns and number of lines.
+                            -->
+                            <layoutDesc>
+                                <layout columns="2" writtenLines="96">
+                                    <p>Stoichedon 23.</p>
+                                </layout>
+                            </layoutDesc>
+
+                        </objectDesc>
+                        
+                        <!--  *************************************  <handDesc>  *********************************
+                            Contains information about types of writing and means of inscription.
+                            <handNote> is a repeatable element, so that it can handle more than one type of writing. 
+                            @ana has one or more values from the writing taxonomy. 
+                            Any more specific information is contained inside <handNote>. If there is more than one type of writing, 
+                             add @hands (<handDesc hands="2">).
+                        -->
+                        
+                        <handDesc>
+                            <handNote ana="#xx">
+                            </handNote>
+                        </handDesc>
+                        
+                        <!--  *************************************  <decoDesc>  *********************************
+                            US Epigraphy doesn't use this much yet, but this is where information about any decorations will go.
+                            <decoNote> is a repeatable element, so that it can handle more than one decoration. 
+                               @type has one  or more values from the decoration taxonomy, and any more specific information 
+                               is contained inside <decoNote>
+                        -->
+
+                        <decoDesc>
+                            <decoNote ana="#xx">
+                                <p/>
+                            </decoNote>
+                        </decoDesc>
+                    </physDesc>
+
+                    <!--  *************************************  <history>  *********************************
+                    
+                    This section is for the history of the inscription. 
+                       <summary>  currently used only if it is necessary to indicate if an inscription is genuine or fake. 
+                        If fake, put the text "fake" inside <rs>.  Ex: <rs>fake</s>
+                        [This is a USEp. convention for now, to indicate if an inscription is fake.]
+                     
+                     <origin> encodes the origin of inscription including place and date. 
+                     <provenance> can appear multiple times, and encodes any additional events in the history of the inscription. 
+                         Not currently in use. 
+                           <date> use 4 digit years, with leading zeros. BCE has a - sign in front of the number. Both @notBefore 
+                           and @notAfter are required. There is no 0000 date; there are only -0001 and 0001. 
+                           <placeName> contains a detailed place name as content. 
+                              @ref has a USEp controlled vocabulary. In the future we plan to use Pleiades information.
+                    -->
+
+                    <history>
+                        <summary>
+                            <rs/>
+                        </summary>
+
+                        <origin>
+                            <date notBefore="-0408" notAfter="-0407">408/7 BCE</date>
+                            <placeName ref="http://pleiades.stoa.org/places/579885" type="pleiades">Athens, Greece</placeName>
+                        </origin>
+
+                        <provenance>
+                            <date notBefore="0001" notAfter="0002">xx</date>
+                            <placeName ref="xx">xx</placeName>
+                        </provenance>
+                    </history>
+                    
+                    <additional>
+                        <surrogates>
+                            <msDesc n="estampage-uninked">
+                                <msIdentifier>
+                                    <repository>Class</repository>
+                                    <idno type="USEpigraphy" xml:id="Sq.IG_Ι3_476_A">Sq.IG Ι3 476 A</idno>
+                                </msIdentifier>
+                                <physDesc>
+                                    <p>Left column preserves IG I3 476 fr. xvii col. 1 lines 158-206; right column preserves fr. xvii col. 2 lines 258-305. Left hand margin of squeeze is in tatters, rendering most of the first serveral letters of each line illegible. Also, some tearing around the lines of the fragment making up the bottom right portion of the squeeze. .</p> 
+                                </physDesc>
+                            </msDesc>
+                        </surrogates>
+                    </additional>
+                </msDesc>
+
+                <!--  *************************************  <listBibl>  *********************************
+                    Encodes bibliographic entries. 
+                    <bibl> used to encode each reference. There can be multiple <bibl>s.
+                    @target points to the id of the publication, which is found in the title.xml file. 
+                    <biblScope> contains the reference in the publication, either page or item numbers.
+                       @type[item] contains the item number in a corpus or other publication
+                       @type[pp] contains page numbers. 
+                       Either or  both of these can be part of a reference.
+                    External links, for example to digital corpora. Encode this as a <ref> inside a <bibl>. 
+                      Ex:  <ref type="external" target="(the url)">EDH nr. HD0000000</ref>
+                -->
+
+                <listBibl>
+                    <bibl>
+                        <ptr type="rest-of-bibl" target="#IG_I3"/>
+                        <biblScope type="item">476</biblScope>
+                   </bibl>
+                    <bibl>
+                        <ptr type="rest-of-bibl" target="#SEG_10"/>
+                        <biblScope type="item">279-296</biblScope>
+                    </bibl>
+                    <bibl>
+                        <ptr type="rest-of-bibl" target="#SEG_31"/>
+                        <biblScope type="item">26</biblScope>
+                    </bibl>
+                    <bibl>
+                        <ptr type="rest-of-bibl" target="#SEG_50"/>
+                        <biblScope type="item">69</biblScope>
+                    </bibl>
+                </listBibl>
+            </sourceDesc>
+        </fileDesc>
+
+        <!--  *************************************  <encodingDesc>  *********************************
+            This section of the header contains the controlled vocabularies for the genre, form and material of
+            an inscription. The taxonomies are in external files, but as you work, Oxygen is reading them, and can 
+            validate ids so that you can be assured that you are using correct values.
+            
+            If you don't find the value you need, you should talk to the project manager or John Bodel, in order to see 
+            what value to use, or (rarely) whether the taxonomies need to be modified.
+            
+            Encoders do not edit the <encodingDesc>.
+        -->
+
+        <encodingDesc>
+           
+                <!-- Taxonomies with lists of controlled values go here.  Each controlled vocabulary is a single file stored at 
+                the URL given below. This allows all encoded inscriptions to use the same set of controlled vocabularies. 
+                The taxonomy files can be updated by US Epigraphy staff, but changes should be made only if approved.
+                -->
+                
+                <xi:include
+                    href="http://dev.stg.brown.edu/projects/usepigraphy/xml/include_taxonomies.xml">
+                    <xi:fallback>
+                        <p>Taxonomies for US Epigraphy controlled values</p>
+                    </xi:fallback>
+                </xi:include>
+            
+        </encodingDesc>
+
+        <!-- Ignore profileDesc for now -->
+        <profileDesc> </profileDesc>
+        
+        
+        <!--  *************************************  <revisionDesc>  *********************************
+             <change> Any change to the file should be recorded here, with most recent revisions listed at the top of the list. 
+             @when Dates should be in the format YYYYY-MM-DD.
+             @who Type in your name. 
+             The content of <change> can be a short description of what changes were made, for example:
+                initial encoding; update original US Ep. values to P5 values; corrected xx; etc.
+        -->
+        <revisionDesc>
+            <change when="2012-06-14" who="SJD">Initial Encoding</change>
+        </revisionDesc>
+
+    </teiHeader>
+
+    <!--  *************************************  <facsimile>  *********************************
+        Used to point to images of an inscription. 
+          <graphic> (directly within <facsimile>) Use this if there is only a single "main" image without a special caption.
+          <surface> Use <desc> and <graphic> within <surface> if there are mutiple images or if they have captions. <surface>
+          pairs one or more images with a single caption. Usually, in US Ep. captions are only indicated when the image is of a detail.
+          @url contains the name of the image file (no path or directory information, for now).
+        <facsimile> can have more than one <graphic> or <surface>.
+     -->
+
+    <facsimile>
+        <graphic url=""/>
+        <surface>
+            <desc/>
+            <graphic url=""/>
+        </surface>
+    </facsimile>
+
+    <text>
+        <body>
+            <div type="edition">
+                <div type="textpart">
+                    <p>Col. 1</p>
+                    <ab>
+                        <lb n="1"/><gap reason="lost" quantity="2" unit="character"/> <supplied reason="lost">τὸ δό</supplied> ρυ hέχοντα, <unclear>#</unclear>Δ. Φ<unclear>υ</unclear>ρόμα
+                        <lb n="2" break="no"/><supplied reason="lost">χος Κ</supplied>εφισιεύς, τὸν νεωανίσκο
+                        <lb n="3" break="no"/><supplied reason="lost">ν τὸν</supplied> παρὰ τὸν θόρακα, ##. Πραχ
+                        <lb n="4" break="no"/><supplied reason="lost">σίας</supplied> ἐμ Μελίτει hοικν, τὸν h
+                        <lb n="5" break="no"/><supplied reason="lost">ίππο</supplied>ν καὶ τὸν hοπισθοφαν τ
+                        <lb n="6" break="no"/><supplied reason="lost">ὸν πα</supplied>ρακρόοντα, <num value="120">ΗΔΔ</num>. Ἀντιφάν
+                        <lb n="7" break="no"/><supplied reason="lost">ες hεκ</supplied> Κερ<unclear>α</unclear>μέον, τὸ ἅρμα καὶ τ
+                        <lb n="8" break="no"/><supplied reason="lost">ὸν νε</supplied><unclear>α</unclear>νίσκον καὶ τὸ hίππο τὸ
+                        <lb n="9"/><supplied reason="lost">ζευγ</supplied>νυ<unclear>μ</unclear>ένο, <num value="240">ΗΗΔΔΔΔ</num>. Φυρόμαχ
+                        <lb n="10" break="no"/><supplied reason="lost">ος Κεφ</supplied>ισιεύς, τὸν hάγοντα τὸ
+                        <lb n="11" break="no"/><supplied reason="lost">ν hί</supplied>ππον <num value="55">#Δ</num>. Μυννίον hαργυλ
+                        <lb n="12" break="no"/><supplied reason="lost">σι h</supplied>οικν, τὸν hίππον καὶ τὸν
+                        <lb n="13"/><supplied reason="lost">hά</supplied>νδρα τὸ<unclear>ν</unclear> hεπικρόοντα καὶ
+                        <lb n="14"/><supplied reason="lost">τὴ</supplied>ν στέλεν hύστερον πρὸσέθ
+                        <lb n="15" break="no"/><supplied reason="lost">εκ</supplied>ε <num value="127">ΗΔΔ#<supplied reason="lost">#</supplied></num>. <unclear>Σ</unclear><supplied reason="lost"></supplied>κλος hαλοπεκ
+                        <lb n="16" break="no"/><supplied reason="lost">σι</supplied> hοικν, τὸν τὸν χαλινὸν hέ
+                        <lb n="17" break="no"/><supplied reason="lost">χον</supplied>τα <num value="60">#Δ</num> ⋮  Φ<unclear>υρ</unclear>όμαχος Κεφισιε
+                        <lb n="18" break="no"/><supplied reason="lost">ύς τ</supplied>ὸν hάνδρα τὸν hεπὶ τς βα
+                        <lb n="19" break="no"/><supplied reason="lost">κτε</supplied>ρί<unclear>α</unclear>ς εἱστεκότα τὸν παρὰ
+                        <lb n="20" break="no"/><supplied reason="lost">τὸν</supplied> βόμον, <num value="60">#Δ</num> ⋮ hίασος Κολλυτε
+                        <lb n="21" break="no"/><supplied reason="lost">ύς, τ</supplied><unclear>ὲγ</unclear> <unclear>γ</unclear>υναῖκα ι ἑ παῖς προσ
+                        <lb n="22" break="no"/><supplied reason="lost">πέπ</supplied>τοκε <num value="80">#ΔΔΔ</num>. <space quantity="1" unit="character"/> κεφάλαιον hα
+                        <lb n="23" break="no"/><supplied reason="lost">γαλ</supplied>μ<unclear>α</unclear>τοποϊκ, <num value="3315">ΧΧΧΗΗΗΔ#</num>. <space quantity="1" unit="character"/>λ
+                        <lb n="24" break="no"/><supplied reason="lost">μμα</supplied>, <num value="4302">ΧΧΧ<unclear>Χ</unclear>ΗΗΗ##Ι</num> ⋮ hανάλομα τὸ α
+                        <lb n="25" break="no"/><supplied reason="lost">ὐτ</supplied>όν <gap reason="illegible" quantity="1" unit="character"/> <space quantity="6" unit="character"/> hεπὶ τς Πανδι
+                        <lb n="26" break="no"/><supplied reason="lost">ον</supplied>ίδος ὀδόες πρυτανευούσ
+                        <lb n="27" break="no"/><supplied reason="lost">ες <space quantity="1" unit="character"/></supplied> λέμ<unclear>μ</unclear>ατα παρὰ ταμιν τς
+                        <lb n="28"/><supplied reason="lost">θε</supplied>, Ἀρεσαίχμο hαγρυλθεν <unclear>κ></unclear>
+                        <lb n="29" break="no"/><supplied reason="lost">αὶ</supplied> συναρχόντον, <num value="1239">ΧΗΗΔΔΔ####
+                        <lb n="30"/><supplied reason="lost">#Ι.</supplied></num> <supplied reason="lost"><space quantity="1" unit="character"/> hα</supplied>ναλόματα hονέματα· σα
+                        <lb n="31" break="no"/><supplied reason="lost">νί</supplied><unclear>δ</unclear>ες δύο hς ἃς τὸν λόγον hα
+                        <lb n="32" break="no"/><supplied reason="lost">ν</supplied>αγράφο<supplied reason="lost">μ</supplied>εν δραχμς hεκατέ
+                        <lb n="33" break="no"/><supplied reason="lost">ρα</supplied>ν, <num value="2">##</num>. κε<unclear>φ</unclear>ά<unclear>λ</unclear>ιον hονεμάτον
+                        <lb n="34"/><supplied reason="lost"><num value="2">##</num></supplied>. λιθοργικ· ῥαβδόσεος τν 
+                        <lb n="35"/><supplied reason="lost">κι</supplied>όνον τν πρὸς ἕο τν κατὰ τ
+                        <lb n="36" break="no"/><supplied reason="lost">ν</supplied> βομόν· τὸν τρίτον hαπὸ τ β
+                        <lb n="37" break="no"/><supplied reason="lost">ομ</supplied> τς Διόνες, hαμεινιάδες
+                        <lb n="38"/><supplied reason="lost">ἐν Κ</supplied>οίλε<supplied reason="omitted">ι</supplied> hοικν, <num value="18">Δ####</num>. hαισχ
+                        <lb n="39"/><supplied reason="lost">ίνε</supplied>ς, <num value="18">Δ####</num>. Λυσανίας, <num value="18">Δ####</num>. Σ
+                        <lb n="40" break="no"/><supplied reason="lost">ομέ</supplied>νες hαμεινιάδο : <num value="18">Δ####</num> : Τι
+                        <lb n="41" break="no"/><supplied reason="lost">μοκρ</supplied><unclear>ά</unclear>τες : <num value="18">Δ####</num> : τὸν hεχόμεν
+                        <lb n="42" break="no"/><supplied reason="lost">ον ἑχσ</supplied><unclear>ς</unclear>, Σιμίας Ἀλοπεκσι h
+                        <lb n="43" break="no"/><supplied reason="lost">οικν : <num value="13">Δ</num></supplied>###. Κέρδον : οικν, <num value="12">Δ##ΙΙΙΙ</num> : Σίν
+                        <lb n="44" break="no"/><supplied reason="lost">δρον Σιμ</supplied>ίο, <num value="12">Δ##ΙΙΙΙ</num>. Σοκλς hαχ
+                        <lb n="45" break="no"/><supplied reason="lost">σιοπείθ</supplied>ος <num value="12">Δ##ΙΙΙΙ</num>. Σαννί<unclear>ὂ</unclear>ν Σι
+                        <lb n="46" break="no"/><supplied reason="lost">μίο, <num value="12">Δ#</num></supplied>#ΙΙΙΙ. hεπιείκες <supplied reason="lost">Σ</supplied>ι<unclear>μ</unclear>ίο : <num value="12">Δ
+                        <lb n="47"/><supplied reason="lost">##ΙΙΙΙΙ.</supplied></num><supplied reason="lost">Σόσ</supplied>hανδρος Σιμί<supplied reason="lost">ο</supplied>, <num value="12">Δ##ΙΙΙΙΙ.</num>
+                        <lb n="48"/><supplied reason="lost">τὸν hεχόμε</supplied>νον ἑχσς <supplied reason="lost">h</supplied>ονέσι
+                        <lb n="49"/><gap reason="lost" extent="unknown" unit="line"/>
+                    </ab>
+                </div>
+                <div type="textpart">
+                    <p>Col. 2</p>
+                    <ab>
+                        <lb n="49"/><gap reason="lost" extent="unknown" unit="line"/><supplied reason="lost">παρα</supplied>
+                        <lb n="50" break="no"/>δείγμα<unclear>τ</unclear>α π<surplus>γ</surplus><supplied reason="omitted">λ</supplied>άττοσι τν χαλκ
+                        <lb n="51" break="no"/>ν τν h<supplied reason="lost">ε</supplied>ις τὰ καλύμμαυτα, Νεσ
+                        <lb n="52" break="no"/>ει ἐμ Μελίτει hοικντι : <num value="8">####</num>.
+                        <lb n="53"/>hέτερον παράδειγμα πλάσαν
+                        <lb n="54" break="no"/>τι τὲν ἄκανθαν, hεις τὰ καλύμ
+                        <lb n="55" break="no"/>ματα, Ἀγαθάνορ Ἀλοπεκσι hο
+                        <lb n="56" break="no"/>ικν, <num value="8">####</num> κεφάλαιον κεροπλ
+                        <lb n="57" break="no"/>άσταις : <num value="16">Δ##</num>. μισθοί· ἀρχιτέκτ
+                        <lb n="58" break="no"/>ονι Ἀ<supplied reason="lost">ρ</supplied>χιλόχοι Ἀγρυλθεν, <num value="36">ΔΔ
+                        <lb n="59"/>Δ##</num>, h<supplied reason="lost">υ</supplied>πογρααματεῖ Πυργίον
+                        <lb n="60" break="no"/>ι hοτ<unclear>ρ</unclear>υνεῖ : <num value="30">ΔΔΔ</num>. κεφάλαιον μι
+                        <lb n="61" break="no"/>σθ, <num value="66">#Δ##</num>. ἐνκαυτι τὸ κυμάτι
+                        <lb n="62" break="no"/>ον ἐνκέαυτι τὸ hεπὶ τι hεπι                        
+                        <lb n="63" break="no"/>στυλίοι τι hεντός, πεντόβο
+                        <lb n="64" break="no"/>λον τὸν πόδα hέκαστον, πόδας
+                        <lb n="65"/>hεκατὸν δεκατρς, μισθοτι
+                        <lb n="66"/>πρὸσhαπέδομεν πρὸς hι πρό
+                        <lb n="67" break="no"/>τερον εἶχε, Διονυσοδόροι ἐμ
+                        <lb n="68"/>Μελίτει hοικντι hεγγυετὲ
+                        <lb n="69" break="no"/>ς hερακείδες, Ὀθεν, <num value="44">ΔΔΔΔ##
+                        <lb n="70"/>##Ι</num> : κεφάλαιον hενκαυτι : <num value="44">ΔΔ
+                        <lb n="71"/>ΔΔ####Ι</num> : λμμα : <num value="1239">ΧΗΗΔΔΔ#####
+                        <lb n="72"/>Ι</num>. ἀνάλομα τὸ hαυτό :: hεπὶ τ
+                        <lb n="73" break="no"/>ς Αἰγεΐδος <space quantity="1" unit="character"/> λέμματα παρὰ τα
+                        <lb n="74" break="no"/>μί<unclear>ο</unclear>ν τς θε, παρὰ Ἀρεσαίχμο
+                        <lb n="75"/>Ἀγρυλθεν καῖ συναρχόντον,
+                        <lb n="76"/><supplied reason="lost">Χ</supplied><gap reason="lost" quantity="1" unit="character"/><num value="301">ΗΗΗΙ</num><gap reason="lost" quantity="3" unit="character"/> <space quantity="3" unit="character"/> hεις ἱερὰ με
+                        <lb n="77" break="no"/><supplied reason="lost">τ</supplied><unclear>ὰ</unclear> τὸν δεμ<supplied reason="lost">ιοργ</supplied><unclear>ν</unclear>, hένει καὶ ν
+                        <lb n="78" break="no"/><supplied reason="lost">έ</supplied><unclear>α</unclear>ι, hεις θυσίαν τι Ἀ<unclear>θ</unclear><supplied reason="lost">ε</supplied><unclear>ν</unclear>αια
+                        <lb n="79" break="no"/>ι, <num value="4">####ΙΙΙ</num>. ἀνάλοματα· hονέμ<supplied reason="lost">ατ</supplied>
+                        <lb n="80" break="no"/><unclear>α</unclear>· χάρται hεονέθεσαν δύο hες
+                        <lb n="81"/>ἃ τὰ ἀντίγραφα hενγράφσαμ
+                        <lb n="82" break="no"/>εν, <num value="2">##ΙΙΙΙ</num>. σανίδες τέτταρες, <num value="4">##
+                        <lb n="83"/>##</num>. χρυσίον hεονέθε hεις τὰς
+                        <lb n="84"/>χάλκας, πέταλα <num value="165">Η#Δ#Ι</num>, δραχμ
+                        <lb n="85" break="no"/>ς hέκαστον τὸ πέταλον, παρ' Ἀδ
+                        <lb n="86" break="no"/>όνιδος ἐμ Μελίτει hοικντο
+                        <lb n="87" break="no"/>ς, <num value="166">Η#Δ##</num>. μόλυβδος hεονέθε <supplied reason="lost">δύ</supplied>
+                        <lb n="88" break="no"/>ο τάλαντο hεις πρόσθεσι<supplied reason="lost">ν τ</supplied>
+                        <lb n="89" break="no"/>ν ζοιδίον παρὰ Σοστράτ<supplied reason="lost">ο ἐμ Μ</supplied>
+                        <lb n="90" break="no"/>ελίτει hοικντος : <num value="10">Δ</num> : χρυ<supplied reason="lost">σίο π</supplied>
+                        <lb n="91" break="no"/>ετάλο δύο hεονέθε χρυσ<unclear>σ</unclear><supplied reason="lost">αι</supplied>
+                        <lb n="92"/>τὸ hοφθαλμὸ τ κίονος παρ' <supplied reason="lost">Ἀδ</supplied>
+                        <lb n="93" break="no"/>όνιδος ἐμ Μελίτει hοικ<supplied reason="lost">ντο</supplied>
+                        <lb n="94" break="no"/>ς, <num value="2">##</num>. κεφάλαιον hονεμάτο<supplied reason="lost">ν, <num value="189">Η#</num></supplied>
+                        <lb n="95"/>ΔΔΔ#####Ι : λιθοργικ· ῥα<supplied reason="lost">βδό</supplied>
+                        <lb n="96" break="no"/>σεος τν κιόνον τν πρ<unclear>ὸ</unclear><supplied reason="lost">ς ἕο τ</supplied>
+                        <lb n="97" break="no"/><gap reason="lost" extent="unknown" unit="line"/>
+                    </ab>
+                </div>
+            </div>
+            <div type="bibliography">
+                <xi:include href="http://dev.stg.brown.edu/projects/usepigraphy/xml/titles.xml">
+                    <xi:fallback>
+                        <p>US Ep bibliography</p>
+                    </xi:fallback>
+                </xi:include>
+            </div>
+        </body>
+    </text>
+</TEI>
